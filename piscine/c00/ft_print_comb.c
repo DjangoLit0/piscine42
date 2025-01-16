@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfofana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:00:14 by cfofana           #+#    #+#             */
-/*   Updated: 2025/01/16 16:07:24 by cfofana          ###   ########.fr       */
+/*   Created: 2025/01/16 16:18:06 by cfofana           #+#    #+#             */
+/*   Updated: 2025/01/16 17:05:14 by cfofana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_putchar(char c)
 {
-	char	letter;
+	write(1, &c, 1);
+}
 
-	letter = 'z';
-	while (letter >= 'a')
+void	ft_print_comb(void)
+
+{
+	char	a;
+	char	b;
+	char	c;
+
+	a = '0';
+	while (a <= '7')
 	{
-		write(1, &letter, 1);
-		letter --;
+	b = a + 1;
+		while (b <= '8')
+		{
+	c = b + 1;
+			while (c <= '9')
+			{
+				ft_putchar(a);
+				ft_putchar(b);
+				ft_putchar(c);
+				if (a != '7' || b != '8' || c != '9')
+					write(1, ", ", 2);
+	c++;
+			}
+	b++;
+		}
+	a++;
 	}
 }
